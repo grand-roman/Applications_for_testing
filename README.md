@@ -1,4 +1,4 @@
-# Applications_for_testing
+# Applications for testing
 
 
 * Студент: Роман Андреев
