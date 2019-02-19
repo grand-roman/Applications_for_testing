@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<questions>
+	<question>
+		<id>1</id>
+		<text>В чём особенности очереди ?</text>
+		<answer>открыта с обеих сторон</answer>
+		<distractor>открыта с одной стороны на вставку и удаление</distractor>
+		<distractor>доступен любой элемент</distractor>
+	</question>
+	<question>
+		<id>2</id>
+		<text>В чём сосбенности стека ?</text>
+		<answer>открыт с одной стороны на вставку и удаление</answer>
+		<distractor>открыт с обеих сторон на вставку и удаление</distractor>
+		<distractor>доступен любой элемент</distractor>
+	</question>
+	<question>
+		<id>3</id>
+		<text>Как создать пустой элемент с указателем p?</text>
+		<answer>p=getnode</answer>
+		<distractor>info(p)</distractor>
+		<distractor>ptr(p)=lst</distractor>
+	</question>
+	<question>
+		<id>4</id>
+		<text>Как создать новый элемент списка с информационным полем D ?</text>
+		<answer>p=getnode; info(p)=D</answer>
+		<distractor>p=getnode</distractor>
+		<distractor>p=getnode; ptr(D)=lst</distractor>
+	</question>
+</questions>

@@ -1,0 +1,15 @@
+C:\Users\Nsis\Desktop\kurs\TestAlg\bin\Debug\TestAlg.exe.config
+C:\Users\Nsis\Desktop\kurs\TestAlg\bin\Debug\TestAlg.exe
+C:\Users\Nsis\Desktop\kurs\TestAlg\bin\Debug\TestAlg.pdb
+C:\Users\Nsis\Desktop\kurs\TestAlg\obj\Debug\TestAlg.csprojAssemblyReference.cache
+C:\Users\Nsis\Desktop\kurs\TestAlg\obj\Debug\MainWindow.g.cs
+C:\Users\Nsis\Desktop\kurs\TestAlg\obj\Debug\App.g.cs
+C:\Users\Nsis\Desktop\kurs\TestAlg\obj\Debug\TestAlg_MarkupCompile.cache
+C:\Users\Nsis\Desktop\kurs\TestAlg\obj\Debug\TestAlg_MarkupCompile.lref
+C:\Users\Nsis\Desktop\kurs\TestAlg\obj\Debug\MainWindow.baml
+C:\Users\Nsis\Desktop\kurs\TestAlg\obj\Debug\TestAlg.g.resources
+C:\Users\Nsis\Desktop\kurs\TestAlg\obj\Debug\TestAlg.Properties.Resources.resources
+C:\Users\Nsis\Desktop\kurs\TestAlg\obj\Debug\TestAlg.csproj.GenerateResource.cache
+C:\Users\Nsis\Desktop\kurs\TestAlg\obj\Debug\TestAlg.csproj.CoreCompileInputs.cache
+C:\Users\Nsis\Desktop\kurs\TestAlg\obj\Debug\TestAlg.exe
+C:\Users\Nsis\Desktop\kurs\TestAlg\obj\Debug\TestAlg.pdb
