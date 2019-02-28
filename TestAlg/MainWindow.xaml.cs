@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Xml.Linq;
 
+
 namespace TestAlg
 {
    
@@ -22,9 +23,15 @@ namespace TestAlg
         public MainWindow()
         {
             InitializeComponent();
-            XElement xml = XElement.Load(@"C:\Users\Nsis\Desktop\kurs\TestAlg\bin\Debug\data.xml");
-            var mydata = QuestionBlank.LoadFromXml(xml);
-
+            XElement xml = XElement.Load(@"D:\kurs\TestAlg\bin\Debug\data.xml");
+            var questionBank = QuestionBlank.LoadFromXml(xml);
+            var questions = TestGeneretor.Generate(questionBank);
+            var model = questions;
+            this.DataContext = model;
+     
         }
+
+       
+
     }
 }

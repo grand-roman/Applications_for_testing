@@ -5,8 +5,44 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TestAlg"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Алгоритмы и структуры данных" Height="450" Width="800">
     <Grid>
-        
+        <StackPanel 
+                HorizontalAlignment="Left"
+                Orientation="Vertical"
+                VerticalAlignment="Top" Margin="10,50,0,0"
+            >
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock Width="150" Text="{Binding QuestionText, Mode=OneWay}"></TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <RadioButton Content="{Binding QuestionAndswer1, Mode=OneWay}" IsChecked="{Binding Andswer1}" ></RadioButton>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"  Margin="5">
+                <RadioButton Content="{Binding QuestionAndswer2, Mode=OneWay}" IsChecked="{Binding Andswer2}" ></RadioButton>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"  Margin="5">
+                <RadioButton Content="{Binding QuestionAndswer3, Mode=OneWay}" IsChecked="{Binding Andswer3}" ></RadioButton>
+
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Margin="20" Orientation="Horizontal" 
+                VerticalAlignment="Bottom"
+                HorizontalAlignment="Right">
+
+            <Button Name="OK" Width="150" Margin="5" Content="Уверен" Command="{Binding IKnowCommand}"  />
+            <Button Name="NotOk" Width="150" Margin="5" Content="Не уверен" Command="{Binding IDontKnowCommand}" />
+        </StackPanel>
+        <StackPanel Margin="20" Orientation="Vertical"
+                VerticalAlignment= "Bottom"
+                HorizontalAlignment="Left">
+            <TextBlock VerticalAlignment="Top" Text="{Binding SliderValue }"/>
+            <Slider TickFrequency="1" HorizontalAlignment="Left"  
+                    VerticalAlignment="Top" Width="392" TickPlacement="Both" Cursor="Pen" 
+                    Minimum="0"
+                    Maximum="{Binding SliderMaximum}"
+                    Value="{Binding SliderValue}"/>
+        </StackPanel>
     </Grid>
 </Window>
