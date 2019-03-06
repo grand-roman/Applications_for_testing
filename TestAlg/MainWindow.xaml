@@ -13,16 +13,16 @@
                 VerticalAlignment="Top" Margin="10,50,0,0"
             >
             <StackPanel Orientation="Horizontal" Margin="5">
-                <TextBlock Width="150" Text="{Binding QuestionText, Mode=OneWay}"></TextBlock>
+                <TextBlock Width="150" Text="{Binding CurrenQuestion.QuestionText, Mode=OneWay}"></TextBlock>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
-                <RadioButton Content="{Binding QuestionAndswer1, Mode=OneWay}" IsChecked="{Binding Andswer1}" ></RadioButton>
+                <RadioButton Content="{Binding CurrenQuestion.QuestionAndswer1, Mode=OneWay}" IsChecked="{Binding CurrenQuestion.Andswer1}" ></RadioButton>
             </StackPanel>
             <StackPanel Orientation="Horizontal"  Margin="5">
-                <RadioButton Content="{Binding QuestionAndswer2, Mode=OneWay}" IsChecked="{Binding Andswer2}" ></RadioButton>
+                <RadioButton Content="{Binding CurrenQuestion.QuestionAndswer2, Mode=OneWay}" IsChecked="{Binding CurrenQuestion.Andswer2}" ></RadioButton>
             </StackPanel>
             <StackPanel Orientation="Horizontal"  Margin="5">
-                <RadioButton Content="{Binding QuestionAndswer3, Mode=OneWay}" IsChecked="{Binding Andswer3}" ></RadioButton>
+                <RadioButton Content="{Binding CurrenQuestion.QuestionAndswer3, Mode=OneWay}" IsChecked="{Binding CurrenQuestion.Andswer3}" ></RadioButton>
 
             </StackPanel>
         </StackPanel>
@@ -31,8 +31,8 @@
                 VerticalAlignment="Bottom"
                 HorizontalAlignment="Right">
 
-            <Button Name="OK" Width="150" Margin="5" Content="Уверен" Command="{Binding IKnowCommand}"  />
-            <Button Name="NotOk" Width="150" Margin="5" Content="Не уверен" Command="{Binding IDontKnowCommand}" />
+            <Button Name="OK" Width="150" Margin="5" Content="Уверен" IsEnabled = "{Binding CurrenQuestion.Sure}" Command="{Binding IKnowCommand}"   />
+            <Button Name="NotOk" Width="150" Margin="5" Content="Не уверен"  IsEnabled = "{Binding CurrenQuestion.NotSure}" Command="{Binding IDontKnowCommand}" />
         </StackPanel>
         <StackPanel Margin="20" Orientation="Vertical"
                 VerticalAlignment= "Bottom"

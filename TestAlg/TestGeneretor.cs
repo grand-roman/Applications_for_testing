@@ -18,7 +18,6 @@ namespace TestAlg
                 p.Add(probe);
             }
 
-            
             var k = new TestViewModel(p);
             
             return k;

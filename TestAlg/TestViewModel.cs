@@ -15,46 +15,6 @@ namespace TestAlg
         private MyCommand IKnow { get; set; }
         private MyCommand IDontKnow { get; set; }
 
-        int[] answerShuffle;
-
-        public string QuestionText
-        {
-            get
-            {
-                return CurrenQuestion.Text;
-
-            }
-        }
-
-        public string QuestionAndswer1
-        {
-            get
-            {
-                return CurrenQuestion.AnswerOptions[answerShuffle[0]];
-            }
-        }
-
-        public string QuestionAndswer2
-        {
-            get
-            {
-                return CurrenQuestion.AnswerOptions[answerShuffle[1]];
-
-            }
-        }
-
-        public string QuestionAndswer3
-        {
-            get
-            {
-                return CurrenQuestion.AnswerOptions[answerShuffle[2]];
-
-            }
-        }
-
-
-
-
         public int SliderMaximum
         {
             get { return lenQuestion; }
@@ -64,8 +24,6 @@ namespace TestAlg
                 OnPropertyChanged("SliderMaximum"); }
             
         }
-
-
 
         public int SliderValue
         {
@@ -77,14 +35,12 @@ namespace TestAlg
             }
         }
 
-
-
         List<Probe> questions;
 
         int currenQuestionIndex;
         int lenQuestion;
 
-        Probe CurrenQuestion
+        public Probe CurrenQuestion
         {
             get
             {
@@ -111,55 +67,41 @@ namespace TestAlg
             this.questions = questions;
             currenQuestionIndex = 0;
             lenQuestion = questions.Count - 1;
-            answerShuffle = Randoming(3);
         }
 
         void SureAnswer()
         {
-
-            currenQuestionIndex++;
-            OnPropertyChanged("QuestionText");
-            OnPropertyChanged("QuestionAndswer1");
-            OnPropertyChanged("QuestionAndswer2");
-            OnPropertyChanged("QuestionAndswer3");
-
+            CurrenQuestion.SureBut(true);
+            if (currenQuestionIndex == lenQuestion)
+            {
+                currenQuestionIndex = 0;
+            }
+            else
+            {
+                currenQuestionIndex++;
+            }
+            OnPropertyChanged("CurrenQuestion");
+            OnPropertyChanged("SliderValue");
         }
 
         void NotSureAnswer()
         {
-            currenQuestionIndex++;
-            OnPropertyChanged("QuestionText");
-            OnPropertyChanged("QuestionAndswer1");
-            OnPropertyChanged("QuestionAndswer2");
-            OnPropertyChanged("QuestionAndswer3");
+            CurrenQuestion.NotSureBut(true);
+            if (currenQuestionIndex == lenQuestion)
+            {
+                currenQuestionIndex = 0;
+            }
+            else
+            {
+                currenQuestionIndex++;
+            }
+            OnPropertyChanged("CurrenQuestion");
+            OnPropertyChanged("SliderValue");
         }
 
         void RunForAnswer()
         {
-            OnPropertyChanged("QuestionText");
-            OnPropertyChanged("QuestionAndswer1");
-            OnPropertyChanged("QuestionAndswer2");
-            OnPropertyChanged("QuestionAndswer3");
-        }
-
-
-
-        public static int[] Randoming(int count)
-        {
-            var rnd = new Random((int)DateTime.Now.ToBinary());
-
-            var m = new int[count];
-            var mk = new double[count];
-
-            for (int i = 0; i < count; i++)
-            {
-                m[i] = i;
-                mk[i] = rnd.NextDouble();
-            }
-
-            Array.Sort(mk, m);
-
-            return m;
+            OnPropertyChanged("CurrenQuestion");
         }
 
     }
