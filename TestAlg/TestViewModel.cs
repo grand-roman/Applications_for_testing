@@ -7,13 +7,18 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Threading;
+using System.Xml.Linq;
 
 namespace TestAlg
 {
     class TestViewModel : INotifyPropertyChanged
     {
+        Action onDone;
+
         private MyCommand IKnow { get; set; }
         private MyCommand IDontKnow { get; set; }
+        private MyCommand IDone { get; set; }
 
         public int SliderMaximum
         {
@@ -35,6 +40,7 @@ namespace TestAlg
             }
         }
 
+      
         List<Probe> questions;
 
         int currenQuestionIndex;
@@ -57,16 +63,21 @@ namespace TestAlg
 
         public ICommand IKnowCommand { get { return IKnow; } }
         public ICommand IDontKnowCommand { get { return IDontKnow; } }
+        public ICommand IDoneCommand { get { return IDone; } }
 
-        public TestViewModel(List<Probe> questions)
+        public TestViewModel(List<Probe> questions, Action onDone)
         {
+            this.onDone = onDone;
             IKnow = new MyCommand(this);
             IKnow.Operation = SureAnswer;
             IDontKnow = new MyCommand(this);
             IDontKnow.Operation = NotSureAnswer;
+            IDone = new MyCommand(this);
+            IDone.Operation = DoneAnswer;
             this.questions = questions;
             currenQuestionIndex = 0;
             lenQuestion = questions.Count - 1;
+
         }
 
         void SureAnswer()
@@ -102,6 +113,19 @@ namespace TestAlg
         void RunForAnswer()
         {
             OnPropertyChanged("CurrenQuestion");
+        }
+
+        public XElement SaveToXml()
+        {
+            var x = new XElement("results");
+            foreach (var q in questions)
+                x.Add(q.SaveToXml());
+            return x;
+        }
+
+        void DoneAnswer()
+        {
+            onDone();
         }
 
     }

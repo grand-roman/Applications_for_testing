@@ -62,6 +62,7 @@
     <Compile Include="QuestionBlank.cs" />
     <Compile Include="TestGeneretor.cs" />
     <Compile Include="TestViewModel.cs" />
+    <Compile Include="User.cs" />
     <Compile Include="Window1.xaml.cs">
       <DependentUpon>Window1.xaml</DependentUpon>
     </Compile>

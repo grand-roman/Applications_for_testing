@@ -20,18 +20,40 @@ namespace TestAlg
    
     public partial class MainWindow : Window
     {
+        TestViewModel model;
+        User regUser;
+
+        private void OnDone()
+        {
+            var xTestResult = model.SaveToXml();
+            var xUser = regUser.SaveToXml();
+            var x = new XElement("Test");
+            x.Add( xTestResult);
+            x.Add( xUser);
+            x.Save("Done.xml");
+            MessageBox.Show("Вы завершили тест!");
+            Application.Current.Shutdown();
+
+        }
+
         public MainWindow()
         {
             InitializeComponent();
             XElement xml = XElement.Load(@"D:\kurs\TestAlg\bin\Debug\data.xml");
             var questionBank = QuestionBlank.LoadFromXml(xml);
-            var questions = TestGeneretor.Generate(questionBank);
-            var model = questions;
+            var questions = TestGeneretor.Generate(questionBank, OnDone);
+            model = questions;
             this.DataContext = model;
-     
         }
 
-       
+        protected override void OnInitialized(EventArgs e)
+        {
+            var regForm = new Window1();
+            regForm.ShowDialog();
+            regUser = regForm.Anketa;
+            base.OnInitialized(e);
+        }
+
 
     }
 }

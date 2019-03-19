@@ -19,9 +19,18 @@ namespace TestAlg
     /// </summary>
     public partial class Window1 : Window
     {
+        public User Anketa { get; set; }
+
         public Window1()
         {
             InitializeComponent();
+            Anketa = new User();
+            this.DataContext = Anketa;
+        }
+
+        private void OK_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

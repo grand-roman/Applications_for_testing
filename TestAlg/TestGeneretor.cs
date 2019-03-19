@@ -8,7 +8,7 @@ namespace TestAlg
 {
     class TestGeneretor
     {
-        public static TestViewModel Generate(QuestionBlank bank)
+        public static TestViewModel Generate(QuestionBlank bank, Action onDone)
         {
             var p = new List<Probe>();
             foreach (var ques in bank.Questions)
@@ -18,7 +18,7 @@ namespace TestAlg
                 p.Add(probe);
             }
 
-            var k = new TestViewModel(p);
+            var k = new TestViewModel(p, onDone);
             
             return k;
             

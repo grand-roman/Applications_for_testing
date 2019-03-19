@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace TestAlg
 {
@@ -13,14 +14,6 @@ namespace TestAlg
         public Probe()
         {
             answerShuffle = Globals.Randoming(3);
-        }
-        public string QuestionText
-        {
-            get
-            {
-                return Question.Text;
-
-            }
         }
 
         public string QuestionAndswer1
@@ -130,7 +123,6 @@ namespace TestAlg
             if (it)
             {
                 sure = false;
-                //enabled = false;
             }
             return sure;
         }
@@ -155,7 +147,6 @@ namespace TestAlg
             if (it)
             {
                 notSure = false;
-                //enabled = false;
             }
             return notSure;
         }
@@ -172,26 +163,27 @@ namespace TestAlg
             }
         }
 
-
-        //private bool enabled = true;
-        //public bool Enabled
-        //{
-        //    get
-        //    {
-        //        return enabled;
-        //    }
-
-        //    set
-        //    {
-        //        OnPropertyChanged("Enabled");
-        //    }
-        //}
-
         public event PropertyChangedEventHandler PropertyChanged;
 
         private void OnPropertyChanged(string name)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
+
+        public XElement SaveToXml()
+        {
+            var xRes = new XElement("result");
+
+            xRes.Add(new XElement("id", Question.Id));
+            if (Andswer1 == true) xRes.Add(new XElement("answer", answerShuffle[0]));
+            else if (Andswer2 == true) xRes.Add(new XElement("answer", answerShuffle[1]));
+            else if (Andswer3 == true) xRes.Add(new XElement("answer", answerShuffle[2]));
+            if (notSure == false) xRes.Add(new XElement("option", "notSure"));
+            else if (Sure == false) xRes.Add(new XElement("option", "Sure"));
+
+
+
+            return xRes;
         }
     }
     

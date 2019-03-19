@@ -16,21 +16,21 @@
                 <TextBlock Width="150" Text="Введите имя:"></TextBlock>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
-                <Label Width="150" Height="15" x:Name="FirstName"></Label>
+                <TextBox Width="150" Height="25" Text="{Binding FirstName}"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
-                <TextBlock Width="150" Text="Введите фамилию:"></TextBlock>
+                <TextBlock Width="150" Text="Введите фамилию:" ></TextBlock>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
-                <Label Width="150" Height="15" x:Name="SecondName"></Label>
+                <TextBox Width="150" Height="25" Text="{Binding LastName}"></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
                 <TextBlock Width="150" Text="Введите группу:"></TextBlock>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
-                <Label Width="150" Height="15" x:Name="Group"></Label>
+                <TextBox Width="150" Height="25" Text="{Binding Grade}"></TextBox>
             </StackPanel>
-            <Button Name="OK" Width="150" Margin="5" Content="Войти"  />
+            <Button Name="OK" Width="150" Margin="5" Content="Войти" Click="OK_Click"  />
         </StackPanel>    
     </Grid>
 </Window>

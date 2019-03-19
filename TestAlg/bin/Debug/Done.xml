@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Test>
+  <results>
+    <result>
+      <id>1</id>
+    </result>
+    <result>
+      <id>2</id>
+    </result>
+    <result>
+      <id>3</id>
+    </result>
+    <result>
+      <id>4</id>
+    </result>
+  </results>
+  <User>
+    <FirstName />
+    <LastName />
+    <Grade />
+  </User>
+</Test>

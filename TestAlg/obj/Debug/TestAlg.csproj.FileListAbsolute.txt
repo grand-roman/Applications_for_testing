@@ -28,3 +28,5 @@ D:\kurs\TestAlg\obj\Debug\TestAlg.g.resources
 D:\kurs\TestAlg\obj\Debug\TestAlg.Properties.Resources.resources
 D:\kurs\TestAlg\obj\Debug\TestAlg.csproj.GenerateResource.cache
 D:\kurs\TestAlg\obj\Debug\TestAlg.csproj.CoreCompileInputs.cache
+D:\kurs\TestAlg\obj\Debug\Window1.g.cs
+D:\kurs\TestAlg\obj\Debug\Window1.baml

@@ -13,7 +13,7 @@
                 VerticalAlignment="Top" Margin="10,50,0,0"
             >
             <StackPanel Orientation="Horizontal" Margin="5">
-                <TextBlock Width="150" Text="{Binding CurrenQuestion.QuestionText, Mode=OneWay}"></TextBlock>
+                <TextBlock Width="150" Text="{Binding CurrenQuestion.Question.Text, Mode=OneWay}"></TextBlock>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
                 <RadioButton Content="{Binding CurrenQuestion.QuestionAndswer1, Mode=OneWay}" IsChecked="{Binding CurrenQuestion.Andswer1}" ></RadioButton>
@@ -28,11 +28,17 @@
         </StackPanel>
 
         <StackPanel Margin="20" Orientation="Horizontal" 
-                VerticalAlignment="Bottom"
-                HorizontalAlignment="Right">
+                VerticalAlignment="Center"
+                HorizontalAlignment="Left">
 
             <Button Name="OK" Width="150" Margin="5" Content="Уверен" IsEnabled = "{Binding CurrenQuestion.Sure}" Command="{Binding IKnowCommand}"   />
             <Button Name="NotOk" Width="150" Margin="5" Content="Не уверен"  IsEnabled = "{Binding CurrenQuestion.NotSure}" Command="{Binding IDontKnowCommand}" />
+        </StackPanel>
+        <StackPanel Margin="20" Orientation="Horizontal" 
+                VerticalAlignment="Bottom"
+                HorizontalAlignment="Right">
+
+            <Button Name="Done" Width="150" Margin="5" Content="Завершить тест" Command="{Binding IDoneCommand}"   />
         </StackPanel>
         <StackPanel Margin="20" Orientation="Vertical"
                 VerticalAlignment= "Bottom"
@@ -43,6 +49,11 @@
                     Minimum="0"
                     Maximum="{Binding SliderMaximum}"
                     Value="{Binding SliderValue}"/>
+        </StackPanel>
+        <StackPanel Margin="20" Orientation="Vertical"
+                VerticalAlignment= "Stretch"
+                HorizontalAlignment="Right">
+            <TextBlock Width="150" Text="{Binding TimePool}"></TextBlock>
         </StackPanel>
     </Grid>
 </Window>
