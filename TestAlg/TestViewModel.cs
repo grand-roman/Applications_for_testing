@@ -16,6 +16,9 @@ namespace TestAlg
     {
         Action onDone;
 
+        DispatcherTimer timer;
+        
+
         private MyCommand IKnow { get; set; }
         private MyCommand IDontKnow { get; set; }
         private MyCommand IDone { get; set; }
@@ -40,7 +43,13 @@ namespace TestAlg
             }
         }
 
-      
+        public TimeSpan MyTime
+        {
+            get;
+            set;
+        }
+    
+
         List<Probe> questions;
 
         int currenQuestionIndex;
@@ -78,6 +87,24 @@ namespace TestAlg
             currenQuestionIndex = 0;
             lenQuestion = questions.Count - 1;
 
+            timer = new DispatcherTimer() { Interval = new TimeSpan(0, 0, 1) };
+            timer.Tick += Timer_Tick;
+            timer.Start();
+
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            if (MyTime.TotalSeconds >= 1800)
+            {
+                timer.Stop();
+                onDone();
+            }
+            else
+            {
+                MyTime += TimeSpan.FromSeconds(1);
+                OnPropertyChanged("MyTime");
+            }
         }
 
         void SureAnswer()
@@ -125,7 +152,16 @@ namespace TestAlg
 
         void DoneAnswer()
         {
-            onDone();
+
+            var result = MessageBox.Show(
+                "Вы уверены?",
+                "Завершение теста",
+                MessageBoxButton.YesNo
+                );
+            if (result == MessageBoxResult.Yes)
+            {
+                onDone();
+            }
         }
 
     }

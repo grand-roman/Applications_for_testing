@@ -24,7 +24,7 @@ namespace TestAlg
         public Window1()
         {
             InitializeComponent();
-            Anketa = new User();
+            Anketa = null;
             this.DataContext = Anketa;
         }
 

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xml.Linq;
 
 namespace ResultTest
 {
@@ -23,6 +24,8 @@ namespace ResultTest
         public MainWindow()
         {
             InitializeComponent();
+            var student = new MainWindowModel();
+            this.DataContext = student;
         }
     }
 }

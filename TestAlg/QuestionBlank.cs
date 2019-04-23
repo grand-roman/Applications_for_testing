@@ -10,19 +10,28 @@ namespace TestAlg
     class QuestionBlank
     {
         public List<Question> Questions { get; set; }
+        public User ForUser { get; set; }
+        public string GuidRes { get; set; }
 
         public QuestionBlank()
         {
             Questions = new List<Question>();
         }
 
-        public static QuestionBlank LoadFromXml(XElement Ques)
+        public XElement SaveToXml()
+        {
+            var xRes = new XElement("Guid", GuidRes);
+
+            return xRes;
+        }
+
+        public static QuestionBlank LoadFromXml(XElement ques)
         {
             var res = new QuestionBlank();
-            foreach (var ques in Ques.Elements())
-
-                res.Questions.Add(Question.LoadFromXml(ques));
-
+            foreach (var que in ques.Element("questions").Elements())
+                res.Questions.Add(Question.LoadFromXml(que));
+            res.ForUser = User.LoadFromXml(ques.Element("User"));
+            res.GuidRes = (string)ques.Element("Guid");
             return res;
         }
     }

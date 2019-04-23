@@ -24,8 +24,8 @@ namespace TestAlg
             var res = new Question();
             res.Id = (int)Ques.Element("id");
             res.Text = (string)Ques.Element("text");
-            res.AnswerOptions.Add((string)Ques.Element("answer"));
-            foreach(string dis in Ques.Elements("distractor"))
+            res.AnswerOptions.Add((string)Ques.Element("option"));
+            foreach(string dis in Ques.Elements("option"))
                 res.AnswerOptions.Add(dis);
 
 

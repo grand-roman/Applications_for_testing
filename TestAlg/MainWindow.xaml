@@ -53,7 +53,7 @@
         <StackPanel Margin="20" Orientation="Vertical"
                 VerticalAlignment= "Stretch"
                 HorizontalAlignment="Right">
-            <TextBlock Width="150" Text="{Binding TimePool}"></TextBlock>
+            <TextBlock Width="150" Text="{Binding MyTime}"></TextBlock>
         </StackPanel>
     </Grid>
 </Window>

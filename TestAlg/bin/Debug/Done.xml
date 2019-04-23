@@ -1,22 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Test>
+  <User f="Андреев" i="Роман" o="Андреевич" />
   <results>
     <result>
-      <id>1</id>
+      <id>3</id>
     </result>
     <result>
       <id>2</id>
     </result>
     <result>
-      <id>3</id>
-    </result>
-    <result>
-      <id>4</id>
+      <id>1</id>
     </result>
   </results>
-  <User>
-    <FirstName />
-    <LastName />
-    <Grade />
-  </User>
+  <Guid>2f586120-3af1-443e-9325-1e2b9f414295</Guid>
 </Test>

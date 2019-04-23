@@ -13,13 +13,28 @@ namespace TestAlg
         public string LastName { get; set; }
         public string Grade { get; set; }
 
+        public User()
+        {
+            ;
+        }
+        
+        public static User LoadFromXml(XElement xUser)
+        {
+            var res = new User();
+            res.FirstName = (string)xUser.Attribute("f");
+            res.LastName = (string)xUser.Attribute("i");
+            res.Grade = (string)xUser.Attribute("o");
+
+            return res;
+        }
+
         public XElement SaveToXml()
         {
             var xRes = new XElement("User");
 
-            xRes.Add(new XElement("FirstName", FirstName));
-            xRes.Add(new XElement("LastName", LastName));
-            xRes.Add(new XElement("Grade", Grade));
+            xRes.Add(new XAttribute("f", FirstName));
+            xRes.Add(new XAttribute("i", LastName));
+            xRes.Add(new XAttribute("o", Grade));
             return xRes;
         }
     }

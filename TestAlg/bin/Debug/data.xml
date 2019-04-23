@@ -1,31 +1,28 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<questions>
-	<question>
-		<id>1</id>
-		<text>В чём особенности очереди ?</text>
-		<answer>открыта с обеих сторон</answer>
-		<distractor>открыта с одной стороны на вставку и удаление</distractor>
-		<distractor>доступен любой элемент</distractor>
-	</question>
-	<question>
-		<id>2</id>
-		<text>В чём сосбенности стека ?</text>
-		<answer>открыт с одной стороны на вставку и удаление</answer>
-		<distractor>открыт с обеих сторон на вставку и удаление</distractor>
-		<distractor>доступен любой элемент</distractor>
-	</question>
-	<question>
-		<id>3</id>
-		<text>Как создать пустой элемент с указателем p?</text>
-		<answer>p=getnode</answer>
-		<distractor>info(p)</distractor>
-		<distractor>ptr(p)=lst</distractor>
-	</question>
-	<question>
-		<id>4</id>
-		<text>Как создать новый элемент списка с информационным полем D ?</text>
-		<answer>p=getnode; info(p)=D</answer>
-		<distractor>p=getnode</distractor>
-		<distractor>p=getnode; ptr(D)=lst</distractor>
-	</question>
-</questions>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<blank>
+  <questions>
+    <question>
+      <id>3</id>
+      <text>Как создать пустой элемент с указателем p?</text>
+      <option>ptr(p)=lst</option>
+      <option>info(p)</option>
+      <option>p=getnode</option>
+    </question>
+    <question>
+      <id>2</id>
+      <text>В чём сосбенности стека ?</text>
+      <option>открыт с одной стороны на вставку и удаление</option>
+      <option>доступен любой элемент</option>
+      <option>открыт с обеих сторон на вставку и удаление</option>
+    </question>
+    <question>
+      <id>1</id>
+      <text>В чём особенности очереди ?</text>
+      <option>доступен любой элемент</option>
+      <option>открыта с обеих сторон</option>
+      <option>открыта с одной стороны на вставку и удаление</option>
+    </question>
+  </questions>
+  <User f="Андреев" i="Роман" o="Андреевич" />
+  <Guid>2f586120-3af1-443e-9325-1e2b9f414295</Guid>
+</blank>

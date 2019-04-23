@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<blank>
+  <questions>
+    <question>
+      <id>3</id>
+      <text>Как создать пустой элемент с указателем p?</text>
+      <option>info(p)</option>
+      <option>ptr(p)=lst</option>
+      <option>p=getnode</option>
+    </question>
+    <question>
+      <id>2</id>
+      <text>В чём сосбенности стека ?</text>
+      <option>открыт с обеих сторон на вставку и удаление</option>
+      <option>открыт с одной стороны на вставку и удаление</option>
+      <option>доступен любой элемент</option>
+    </question>
+    <question>
+      <id>1</id>
+      <text>В чём особенности очереди ?</text>
+      <option>доступен любой элемент</option>
+      <option>открыта с обеих сторон</option>
+      <option>открыта с одной стороны на вставку и удаление</option>
+    </question>
+  </questions>
+  <User f="Искандиров" i="Руслан" o="Линурович" />
+  <Guid>263143d9-f55d-4ae1-ba69-e424f1fdafa0</Guid>
+</blank>

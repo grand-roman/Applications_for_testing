@@ -13,5 +13,8 @@ namespace ResultTest
     /// </summary>
     public partial class App : Application
     {
+        public static Random Rnd = new Random((int)DateTime.Now.ToBinary());
+        public static IDialogService WindowServiceOverride { get; internal set; }
+        public static ITestService TestServiceOverride { get; internal set; }
     }
 }

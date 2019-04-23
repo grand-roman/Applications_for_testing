@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<blankForPrepot>
+  <questions>
+    <question>
+      <id>3</id>
+      <answer>1</answer>
+    </question>
+    <question>
+      <id>2</id>
+      <answer>1</answer>
+    </question>
+    <question>
+      <id>1</id>
+      <answer>2</answer>
+    </question>
+  </questions>
+  <User f="Андреев" i="Роман" o="Андреевич" />
+  <Guid>8d799fb8-ab3e-4781-ab03-1279db37c116</Guid>
+</blankForPrepot>

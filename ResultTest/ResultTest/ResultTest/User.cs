@@ -9,18 +9,29 @@ namespace ResultTest
 {
     public class User
     {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Grade { get; set; }
+        public string FName { get; set; }
+        public string IName { get; set; }
+        public string OName { get; set; }
+
+        public static User LoadFromXml(XElement xUser)
+        {
+            var res = new User();
+            res.FName = (string)xUser.Attribute("f");
+            res.IName = (string)xUser.Attribute("i");
+            res.OName = (string)xUser.Attribute("o");
+
+            return res;
+        }
 
         public XElement SaveToXml()
         {
-            var xRes = new XElement("User");
+            var xResU = new XElement("User");
 
-            xRes.Add(new XElement("FirstName", FirstName));
-            xRes.Add(new XElement("LastName", LastName));
-            xRes.Add(new XElement("Grade", Grade));
-            return xRes;
+            xResU.Add(new XAttribute("f", FName));
+            xResU.Add(new XAttribute("i", IName));
+            xResU.Add(new XAttribute("o", OName));
+
+            return xResU;
         }
     }
 }
