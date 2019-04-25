@@ -41,7 +41,7 @@ namespace ResultTest
         private MyCommand takeSave;
 
         private MyCommand takeCheckStudent;
-        private MyCommand takeKeyStudent;
+        private MyCommand takeClear;
         private MyCommand takeSaveScore;
 
         public string Student { get; set; }
@@ -49,8 +49,8 @@ namespace ResultTest
         public string SaveBlank { get; set; }
 
         public string Score { get; set; }
-        public string CheckStudent { get; set; }
-        public string KeyStudent { get; set; }
+
+        public ListModel ListModels { get; set; }
 
         public MainWindowModel()
         {
@@ -63,10 +63,11 @@ namespace ResultTest
 
             takeCheckStudent = new MyCommand(this);
             takeCheckStudent.Operation = TakeCheckStudent;
-            takeKeyStudent = new MyCommand(this);
-            takeKeyStudent.Operation = TakeKeyStudent;
+            takeClear = new MyCommand(this);
+            takeClear.Operation = TakeClear;
             takeSaveScore = new MyCommand(this);
             takeSaveScore.Operation = TakeSaveScore;
+
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -99,27 +100,28 @@ namespace ResultTest
 
         void TakeSaveScore()
         {
-            var service = ServiceResolver.GetDialogService();
-            var folder = service.PickFolder();
-            Score = folder;
-            OnPropertyChanged("Score");
+            //var service = ServiceResolver.GetDialogService();
+            //var folder = service.PickFolder();
+            //Score = folder;
+            //OnPropertyChanged("Score");
         }
 
         void TakeCheckStudent()
         {
             var service = ServiceResolver.GetDialogService();
-            var f = service.PickFolder();
-            CheckStudent = f;
-            OnPropertyChanged("CheckStudent");
+            var f = service.Joins();
+            ListModels = ListModel.Zzz(f);
+
+            OnPropertyChanged("ListModel");
+
         }
 
-        void TakeKeyStudent()
+        void TakeClear()
         {
-            var service = ServiceResolver.GetDialogService();
-            var f = service.PickFolder();
-            CheckStudent = f;
+            ListModels = null;
+            OnPropertyChanged("ListModel");
+            OnPropertyChanged("CheckStudent");
             OnPropertyChanged("KeyStudent");
-
         }
 
         private void OnPropertyChanged(string name)
@@ -134,8 +136,82 @@ namespace ResultTest
         public ICommand SaveAllBank { get { return takeSave; } }
 
         public ICommand SelectCheckStudent { get { return takeCheckStudent; } }
-        public ICommand SelectKeyStudent { get { return takeKeyStudent; } }
+        public ICommand SelectClearStudent { get { return takeClear; } }
         public ICommand SaveScore { get { return takeSaveScore; } }
+    }
+
+    class ListModel : List<ListItemModel>
+    {
+        public static ListModel Zzz(string[] f)
+        {
+            List<XElement> res = new List<XElement>();
+            foreach (var item in f)
+            {
+                res.Add(XElement.Load(item));
+            }
+            Dictionary<String, Tuple<XElement, XElement>> TestKey = new Dictionary<string, Tuple<XElement, XElement>>();
+            foreach (var x in res)
+            {
+                var rootName = x.Name.LocalName;
+                var guid = (string)x.Element("Guid");
+                if (TestKey.ContainsKey(guid))
+                {
+                    var k = TestKey[guid];
+                    if (k.Item1 != null && k.Item1.Name.LocalName == "Test")
+                        TestKey[guid] = new Tuple<XElement, XElement>(k.Item1, x);
+                    else
+                        TestKey[guid] = new Tuple<XElement, XElement>(x, k.Item2);
+                }
+                else
+                {
+                    if (rootName == "Test")
+                        TestKey.Add(guid, new Tuple<XElement, XElement>(x, null));
+                    else
+                        TestKey.Add(guid, new Tuple<XElement, XElement>(null, x));
+                }
+            }
+            var ListModel = new ListModel();
+            foreach (var resof in TestKey.Values)
+            {
+                var key = KeyStudent.LoadFromXml(resof.Item2);
+                var test = ResStudent.LoadFromXml(resof.Item1);
+                if (test == null)
+                    ListModel.Add(new ListItemModel()
+                    {
+                        KeyStudent = key.User
+                    });
+                if (key == null)
+                    ListModel.Add(new ListItemModel()
+                    {
+                        CheckStudent = test.User
+                    });
+                else
+                    ListModel.Add(new ListItemModel()
+                    {
+                        CheckStudent = test.User,
+                        KeyStudent = key.User,
+                        Score = null
+                    });
+            }
+
+            return ListModel;
+            
+        }
+
+    }
+
+    class ListItemModel
+    {
+        public string Score { get; set; }
+
+        public string CheckStudent { get; set; }
+        public string KeyStudent { get; set; }
+
+        static string TakeScore(ResStudent test , KeyStudent key)
+        {
+            ///ТУТ БУДЕТ ОЦЕНКА
+            return "-1";
+        }
 
     }
 }

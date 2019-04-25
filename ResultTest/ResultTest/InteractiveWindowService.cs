@@ -11,6 +11,7 @@ namespace ResultTest
     {
         string ShowOpenFileDialog();
         string PickFolder();
+        string[] Joins();
     }
 
     public interface ITestService
@@ -41,5 +42,17 @@ namespace ResultTest
             return null;
 
         }
+
+        public string[] Joins()
+        {
+            var d = new OpenFileDialog();
+            d.Multiselect = true; 
+            var z = d.ShowDialog();
+            if (z ?? false)
+                return d.FileNames;
+            return null;
+
+        }
+        
     }
 }

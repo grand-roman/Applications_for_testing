@@ -41,18 +41,19 @@
                             VerticalAlignment="Top" Margin="10,50,0,0"
                         >
                         <StackPanel Orientation="Horizontal" Margin="5">
-                            <ListView HorizontalAlignment="Left" Height="200" Width="500" VerticalAlignment="Top" >
+                            <ListView ItemsSource="{Binding ListModel}" HorizontalAlignment="Left" Height="200" Width="500" VerticalAlignment="Top">
                                 <ListView.View>
                                     <GridView>
                                         <GridViewColumn Width="250" DisplayMemberBinding="{Binding CheckStudent}">Решение студента</GridViewColumn>
                                         <GridViewColumn Width="150" DisplayMemberBinding="{Binding KeyStudent}" >Ключ</GridViewColumn>
+                                        <GridViewColumn Width="150" DisplayMemberBinding="{Binding Score}" >Ключ</GridViewColumn>
                                     </GridView>
                                 </ListView.View>
                             </ListView>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Margin="5">
                             <Button Name="Check" Width="150"  Margin="100,0,0,0" Content="Выбрать решение студента"  Command="{Binding SelectCheckStudent}"   />
-                            <Button Name="Key" Width="150"  Margin="10,0,0,0" Content="Выбрать ключи"  Command="{Binding SelectKeyStudent}"   />
+                            <Button Name="Key" Width="150"  Margin="10,0,0,0" Content="Очистить"  Command="{Binding SelectClearStudent}"   />
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Margin="5">
                             <Button Name="Score" Width="150"  Margin="180,0,0,0" Content="Результат"  Command="{Binding SaveScore}"   />
