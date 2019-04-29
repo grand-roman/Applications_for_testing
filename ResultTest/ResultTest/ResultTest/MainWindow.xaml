@@ -1,0 +1,66 @@
+﻿<Window x:Class="ResultTest.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ResultTest"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <TabControl HorizontalAlignment="Left" Height="420" VerticalAlignment="Top" Width="792">
+            <TabItem Header="Создать тест">
+                <Grid Background="#FFE5E5E5">
+                    <Grid>
+                        <StackPanel 
+                            HorizontalAlignment="Center"
+                            Orientation="Vertical"
+                            VerticalAlignment="Top" Margin="10,50,0,0"
+                            >
+                            <StackPanel Orientation="Horizontal" Margin="5">
+                                <TextBlock Width="150" Text="Выбрать студентов"></TextBlock>
+                                <TextBox Text="{Binding Student}" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                                <Button Name="Student" Width="150"  Margin="10,0,0,0" Content="Выбрать студентов"  Command="{Binding SelectStudent}"   />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="5">
+                                <TextBlock Width="150" Text="Выбрать банк заданий"></TextBlock>
+                                <TextBox Text="{Binding BankQ}" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                                <Button Name="Bank" Width="150"   Margin="10,0,0,0" Content="Выбрать банк вопросов"  Command="{Binding SelectBank}"   />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="5">
+                                <Button Name="Save" Width="150" Margin="0,0,0,0" Content="Сохранить" Command="{Binding SaveAllBank}"   />
+                            </StackPanel>
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Проверить тест">
+                <Grid Background="#FFE5E5E5">
+                    <StackPanel 
+                            HorizontalAlignment="Center"
+                            Orientation="Vertical"
+                            VerticalAlignment="Top" Margin="10,50,0,0"
+                        >
+                        <StackPanel Orientation="Horizontal" Margin="5">
+                            <ListView ItemsSource="{Binding ListModels}" HorizontalAlignment="Left" Height="200" Width="500" VerticalAlignment="Top">
+                                <ListView.View>
+                                    <GridView>
+                                        <GridViewColumn Width="250" DisplayMemberBinding="{Binding CheckStudent}">Решение студента</GridViewColumn>
+                                        <GridViewColumn Width="150" DisplayMemberBinding="{Binding KeyStudent}" >Ключ</GridViewColumn>
+                                        <GridViewColumn Width="150" DisplayMemberBinding="{Binding Score}" >Оценка</GridViewColumn>
+                                    </GridView>
+                                </ListView.View>
+                            </ListView>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="5">
+                            <Button Name="Check" Width="150"  Margin="100,0,0,0" Content="Выбрать решение студента"  Command="{Binding SelectCheckStudent}"   />
+                            <Button Name="Key" Width="150"  Margin="10,0,0,0" Content="Очистить"  Command="{Binding SelectClearStudent}"   />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="5">
+                            <Button Name="Score" Width="150"  Margin="180,0,0,0" Content="Результат"  Command="{Binding SaveScore}"   />
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

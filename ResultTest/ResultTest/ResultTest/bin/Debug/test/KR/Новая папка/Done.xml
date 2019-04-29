@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Test>
+  <User f="Андреев" i="Андрей" o="Викторович" />
+  <results>
+    <result>
+      <id>3</id>
+      <answer>2</answer>
+      <option>notSure</option>
+    </result>
+    <result>
+      <id>2</id>
+      <answer>1</answer>
+      <option>notSure</option>
+    </result>
+    <result>
+      <id>1</id>
+      <answer>0</answer>
+      <option>notSure</option>
+    </result>
+  </results>
+  <Guid>ca1ace05-b7aa-4475-9cac-07b4fac6ba0f</Guid>
+</Test>
